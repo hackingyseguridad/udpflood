@@ -1,4 +1,4 @@
-!/bin/sh
+#!/bin/sh
 echo
 echo "Script test de stress DDoS UDP Flood"
 echo "Uso.: ./t50.sh IP_OBJETIVO PUERTO_UDP"
